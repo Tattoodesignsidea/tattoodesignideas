@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INKFORGE • Tattoo Designs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap');
+        
+        :root {
+            --neon: #00ffea;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+        
+        .heading-font {
+            font-family: 'Playfair Display', sans-serif;
+        }
+
+        .hero-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), url('https://picsum.photos/id/1015/2000/1200');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .neon-text {
+            text-shadow: 0 0 10px var(--neon),
+                        0 0 20px var(--neon),
+                        0 0 40px var(--neon);
+        }
+
+        .tattoo-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .tattoo-card:hover {
+            transform: translateY(-20px) scale(1.03);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.5);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #00ffea;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+
+        .gallery-img {
+            transition: all 0.5s ease;
+        }
+        
+        .gallery-img:hover {
+            transform: scale(1.08);
+            filter: brightness(1.2) contrast(1.1);
+        }
+
+        .ink-drop {
+            animation: inkDrop 6s infinite linear;
+        }
+
+        @keyframes inkDrop {
+            0% { transform: translateY(-100px); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(300px); opacity: 0; }
+        }
+    </style>
+</head>
+<body class="bg-zinc-950 text-white overflow-x-hidden">
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-lg border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 bg-gradient-to-br from-cyan-400 to-purple-600 rounded-2xl flex items-center justify-center text-2xl font-bold">🜁</div>
+                <h1 class="text-3xl heading-font tracking-tighter neon-text">INKFORGE</h1>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-10 text-sm font-medium">
+                <a href="#gallery" class="nav-link">GALLERY</a>
+                <a href="#styles" class="nav-link">STYLES</a>
+                <a href="#artists" class="nav-link">ARTISTS</a>
+                <a href="#book" class="nav-link">BOOK NOW</a>
+            </div>
+            
+            <button onclick="document.getElementById('book').scrollIntoView({ behavior: 'smooth' })" 
+                    class="bg-white text-black px-8 py-3.5 rounded-2xl font-semibold hover:bg-cyan-400 hover:text-black transition-all flex items-center gap-2 text-sm tracking-widest">
+                <i class="fa-solid fa-bolt"></i>
+                START YOUR TATTOO
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero-bg h-screen flex items-center relative">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,#00ffea10_0%,transparent_70%)]"></div>
+        
+        <div class="max-w-5xl mx-auto px-6 text-center relative z-10 pt-20">
+            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-6 py-2 rounded-3xl mb-8 border border-white/20">
+                <span class="text-emerald-400 text-xl">●</span>
+                <span class="uppercase tracking-[3px] text-sm font-medium">EST. 2024 • FUTURISTIC INK</span>
+            </div>
+            
+            <h1 class="text-7xl md:text-8xl heading-font font-bold leading-none mb-6">
+                INK THAT<br>BECOMES<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500">PART OF YOU</span>
+            </h1>
+            
+            <p class="max-w-lg mx-auto text-xl text-gray-300 mb-12">
+                Bold, futuristic, and timeless tattoo designs crafted by world-class artists. 
+                Your story. Your skin. Your legacy.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-5 justify-center">
+                <button onclick="document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' })" 
+                        class="group bg-white text-black px-10 py-6 rounded-3xl text-xl font-semibold flex items-center justify-center gap-3 hover:scale-105 transition-all">
+                    EXPLORE DESIGNS
+                    <span class="group-hover:rotate-45 transition-transform">→</span>
+                </button>
+                
+                <button onclick="document.getElementById('book').scrollIntoView({ behavior: 'smooth' })" 
+                        class="border-2 border-white/70 hover:border-cyan-400 px-10 py-6 rounded-3xl text-xl font-semibold transition-all">
+                    BOOK AN ARTIST
+                </button>
+            </div>
+            
+            <div class="mt-20 flex justify-center gap-8 text-sm opacity-75">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-check text-cyan-400"></i>
+                    <span>1000+ Original Designs</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-check text-cyan-400"></i>
+                    <span>Custom AI Concepts</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-check text-cyan-400"></i>
+                    <span>Worldwide Artists</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+            <div class="text-xs tracking-widest opacity-60">SCROLL TO EXPLORE</div>
+            <div class="w-px h-12 bg-gradient-to-b from-transparent via-white to-transparent"></div>
+        </div>
+
+        <!-- Floating ink drops -->
+        <div class="absolute bottom-0 left-10 text-6xl opacity-10 ink-drop">🜂</div>
+        <div class="absolute top-40 right-20 text-8xl opacity-10 ink-drop" style="animation-delay: 2s;">🜁</div>
+    </section>
+
+    <!-- TRUST BAR -->
+    <div class="bg-black py-6 border-b border-white/10">
+        <div class="max-w-6xl mx-auto px-6 flex flex-wrap justify-center items-center gap-x-12 gap-y-6 opacity-75 text-sm">
+            <div class="flex items-center gap-3">
+                <span class="text-3xl">★</span>
+                <div>
+                    <div class="font-semibold">4.98/5</div>
+                    <div class="text-xs">From 3,284 clients</div>
+                </div>
+            </div>
+            <div class="h-8 w-px bg-white/20"></div>
+            <div>Featured in <span class="font-semibold text-cyan-400">VOGUE</span> • <span class="font-semibold text-cyan-400">GQ</span> • <span class="font-semibold text-cyan-400">INKED</span></div>
+            <div class="h-8 w-px bg-white/20"></div>
+            <div class="flex gap-6 text-2xl">
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-tiktok"></i>
+                <i class="fa-brands fa-x-twitter"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="py-24 bg-zinc-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <span class="text-cyan-400 uppercase tracking-widest text-sm">CURATED COLLECTION</span>
+                    <h2 class="text-5xl heading-font font-bold">Signature Designs</h2>
+                </div>
+                <a href="#" onclick="alert('Full gallery coming soon!')" 
+                   class="flex items-center gap-2 text-sm group">
+                    VIEW ALL DESIGNS 
+                    <span class="transition-transform group-hover:translate-x-1">→</span>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="tattoo-card group bg-zinc-950 rounded-3xl overflow-hidden border border-white/10">
+                    <div class="relative">
+                        <img src="https://picsum.photos/id/1015/800/900" alt="Cyber Dragon Tattoo" 
+                             class="w-full h-[420px] object-cover gallery-img">
+                        <div class="absolute top-4 right-4 bg-black/70 px-4 py-1.5 rounded-2xl text-xs flex items-center gap-2">
+                            <span class="text-orange-400">●</span> NEW
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-2xl font-semibold heading-font">Cyber Dragon</h3>
+                                <p class="text-gray-400 text-sm">Neo-Tokyo Series</p>
+                            </div>
+                            <button onclick="showDesignModal(1)" 
+                                    class="bg-white/10 hover:bg-white/20 w-10 h-10 rounded-2xl flex items-center justify-center transition-colors">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="tattoo-card group bg-zinc-950 rounded-3xl overflow-hidden border border-white/10">
+                    <div class="relative">
+                        <img src="https://picsum.photos/id/201/800/900" alt="Cosmic Phoenix" 
+                             class="w-full h-[420px] object-cover gallery-img">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-2xl font-semibold heading-font">Cosmic Phoenix</h3>
+                                <p class="text-gray-400 text-sm">Rebirth Collection</p>
+                            </div>
+                            <button onclick="showDesignModal(2)" 
+                                    class="bg-white/10 hover:bg-white/20 w-10 h-10 rounded-2xl flex items-center justify-center transition-colors">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="tattoo-card group bg-zinc-950 rounded-3xl overflow-hidden border border-white/10">
+                    <div class="relative">
+                        <img src="https://picsum.photos/id/866/800/900" alt="Geometric Lion" 
+                             class="w-full h-[420px] object-cover gallery-img">
+                        <div class="absolute bottom-4 left-4 bg-black/80 px-3 py-1 text-xs rounded-xl">BEST SELLER</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-2xl font-semibold heading-font">Sacred Lion</h3>
+                                <p class="text-gray-400 text-sm">Geometric Series</p>
+                            </div>
+                            <button onclick="showDesignModal(3)" 
+                                    class="bg-white/10 hover:bg-white/20 w-10 h-10 rounded-2xl flex items-center justify-center transition-colors">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STYLES -->
+    <section id="styles" class="py-24 border-t border-b border-white/10 bg-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-center text-5xl heading-font font-bold mb-4">Find Your Style</h2>
+            <p class="text-center text-gray-400 max-w-md mx-auto mb-16">From ancient traditions to bleeding-edge futurism — we master every tattoo style.</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div onclick="filterStyle(this)" class="style-card bg-zinc-900 hover:bg-gradient-to-br hover:from-purple-900/30 hover:to-cyan-900/30 p-8 rounded-3xl text-center cursor-pointer transition-all border border-transparent hover:border-cyan-400 group">
+                    <div class="text-6xl mb-6">🐉</div>
+                    <h4 class="text-2xl font-semibold mb-1">Japanese</h4>
+                    <p class="text-sm text-gray-400">Irezumi • Dragons • Koi</p>
+                </div>
+                
+                <div onclick="filterStyle(this)" class="style-card bg-zinc-900 hover:bg-gradient-to-br hover:from-rose-900/30 hover:to-orange-900/30 p-8 rounded-3xl text-center cursor-pointer transition-all border border-transparent hover:border-rose-400 group">
+                    <div class="text-6xl mb-6">🌹</div>
+                    <h4 class="text-2xl font-semibold mb-1">Neo-Traditional</h4>
+                    <p class="text-sm text-gray-400">Bold lines • Vibrant colors</p>
+                </div>
+                
+                <div onclick="filterStyle(this)" class="style-card bg-zinc-900 hover:bg-gradient-to-br hover:from-emerald-900/30 hover:to-cyan-900/30 p-8 rounded-3xl text-center cursor-pointer transition-all border border-transparent hover:border-emerald-400 group">
+                    <div class="text-6xl mb-6">🔮</div>
+                    <h4 class="text-2xl font-semibold mb-1">Geometric</h4>
+                    <p class="text-sm text-gray-400">Sacred geometry • Minimal</p>
+                </div>
+                
+                <div onclick="filterStyle(this)" class="style-card bg-zinc-900 hover:bg-gradient-to-br hover:from-violet-900/30 hover:to-fuchsia-900/30 p-8 rounded-3xl text-center cursor-pointer transition-all border border-transparent hover:border-violet-400 group">
+                    <div class="text-6xl mb-6">🌌</div>
+                    <h4 class="text-2xl font-semibold mb-1">Futuristic</h4>
+                    <p class="text-sm text-gray-400">Cyberpunk • Biomech</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOOK SECTION -->
+    <section id="book" class="py-24 bg-gradient-to-b from-zinc-900 to-black">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <div class="inline-block bg-white/5 border border-white/20 rounded-3xl px-8 py-3 mb-8">
+                <span class="text-cyan-400 font-mono">READY TO INK?</span>
+            </div>
+            <h2 class="text-6xl heading-font font-bold leading-tight mb-8">
+                Let's create your<br>forever masterpiece
+            </h2>
+            <p class="text-xl text-gray-300 max-w-md mx-auto mb-12">
+                Book a free consultation with one of our master artists today.
+            </p>
+            
+            <form id="bookingForm" class="max-w-xl mx-auto space-y-6">
+                <div class="grid grid-cols-2 gap-6">
+                    <input type="text" placeholder="Your Name" 
+                           class="bg-white/5 border border-white/10 focus:border-cyan-400 rounded-2xl px-7 py-6 outline-none transition-colors">
+                    <input type="email" placeholder="Email Address" 
+                           class="bg-white/5 border border-white/10 focus:border-cyan-400 rounded-2xl px-7 py-6 outline-none transition-colors">
+                </div>
+                <input type="tel" placeholder="Phone Number" 
+                       class="w-full bg-white/5 border border-white/10 focus:border-cyan-400 rounded-2xl px-7 py-6 outline-none transition-colors">
+                
+                <div class="grid grid-cols-2 gap-6">
+                    <select class="bg-white/5 border border-white/10 focus:border-cyan-400 rounded-2xl px-7 py-6 outline-none transition-colors">
+                        <option>Tattoo Style</option>
+                        <option>Japanese</option>
+                        <option>Neo-Traditional</option>
+                        <option>Geometric</option>
+                        <option>Futuristic</option>
+                    </select>
+                    <input type="text" placeholder="Preferred Date" 
+                           class="bg-white/5 border border-white/10 focus:border-cyan-400 rounded-2xl px-7 py-6 outline-none transition-colors">
+                </div>
+                
+                <textarea placeholder="Describe your tattoo idea..." rows="4"
+                          class="w-full bg-white/5 border border-white/10 focus:border-cyan-400 rounded-3xl px-7 py-6 outline-none transition-colors"></textarea>
+                
+                <button type="button" onclick="submitBooking()" 
+                        class="w-full bg-gradient-to-r from-cyan-400 to-purple-600 text-black font-bold py-8 rounded-3xl text-xl hover:brightness-110 transition-all flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    SUBMIT REQUEST • FREE CONSULTATION
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="py-24 bg-black">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-5xl heading-font text-center font-bold mb-16">Voices From The Ink</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-zinc-900/70 p-8 rounded-3xl">
+                    <div class="flex mb-6">
+                        <span class="text-amber-400 text-2xl">★★★★★</span>
+                    </div>
+                    <p class="text-lg italic">"The cyber-sleeve I got is beyond anything I imagined. People stop me on the street every day."</p>
+                    <div class="mt-10 flex items-center gap-4">
+                        <div class="w-12 h-12 bg-zinc-700 rounded-2xl"></div>
+                        <div>
+                            <div class="font-semibold">Alex Rivera</div>
+                            <div class="text-xs text-gray-500">Software Engineer • Los Angeles</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-zinc-900/70 p-8 rounded-3xl">
+                    <div class="flex mb-6">
+                        <span class="text-amber-400 text-2xl">★★★★★</span>
+                    </div>
+                    <p class="text-lg italic">"The attention to detail and the healing process guidance was incredible. Best experience ever."</p>
+                    <div class="mt-10 flex items-center gap-4">
+                        <div class="w-12 h-12 bg-zinc-700 rounded-2xl"></div>
+                        <div>
+                            <div class="font-semibold">Sofia Chen</div>
+                            <div class="text-xs text-gray-500">Artist • Berlin</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-zinc-900/70 p-8 rounded-3xl">
+                    <div class="flex mb-6">
+                        <span class="text-amber-400 text-2xl">★★★★★</span>
+                    </div>
+                    <p class="text-lg italic">"My geometric chest piece healed perfectly and looks insane. 10/10 would recommend Inkforge."</p>
+                    <div class="mt-10 flex items-center gap-4">
+                        <div class="w-12 h-12 bg-zinc-700 rounded-2xl"></div>
+                        <div>
+                            <div class="font-semibold">Marcus Okoro</div>
+                            <div class="text-xs text-gray-500">Athlete • Lagos</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black border-t border-white/10 pt-20 pb-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between gap-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-9 h-9 bg-gradient-to-br from-cyan-400 to-purple-600 rounded-2xl flex items-center justify-center text-3xl">🜁</div>
+                        <h1 class="text-4xl heading-font tracking-tighter">INKFORGE</h1>
+                    </div>
+                    <p class="max-w-xs text-gray-400">Where skin meets art. Premium tattoo experiences worldwide.</p>
+                </div>
+                
+                <div class="grid grid-cols-3 gap-12">
+                    <div>
+                        <h4 class="uppercase text-xs tracking-widest mb-6">Studio</h4>
+                        <ul class="space-y-3 text-sm">
+                            <li><a href="#" class="hover:text-cyan-400">Our Story</a></li>
+                            <li><a href="#" class="hover:text-cyan-400">Artists</a></li>
+                            <li><a href="#" class="hover:text-cyan-400">Studio Locations</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="uppercase text-xs tracking-widest mb-6">Explore</h4>
+                        <ul class="space-y-3 text-sm">
+                            <li><a href="#" class="hover:text-cyan-400">Gallery</a></li>
+                            <li><a href="#" class="hover:text-cyan-400">Custom AI Generator</a></li>
+                            <li><a href="#" class="hover:text-cyan-400">Aftercare</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="uppercase text-xs tracking-widest mb-6">Connect</h4>
+                        <div class="flex gap-6 text-2xl">
+                            <a href="#" class="hover:text-cyan-400"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" class="hover:text-cyan-400"><i class="fa-brands fa-tiktok"></i></a>
+                            <a href="#" class="hover:text-cyan-400"><i class="fa-brands fa-x-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center text-xs text-gray-500 mt-20">
+                © 2026 INKFORGE • All Rights Reserved • Not a real studio (yet)
+            </div>
+        </div>
+    </footer>
+
+    <!-- DESIGN MODAL -->
+    <div id="designModal" class="hidden fixed inset-0 bg-black/90 z-[100] flex items-center justify-center p-6">
+        <div class="max-w-2xl w-full bg-zinc-900 rounded-3xl overflow-hidden">
+            <div id="modalImage" class="h-96 bg-cover bg-center"></div>
+            <div class="p-8">
+                <h3 id="modalTitle" class="text-4xl heading-font font-bold mb-2"></h3>
+                <p id="modalDesc" class="text-gray-400"></p>
+                
+                <div class="flex gap-4 mt-10">
+                    <button onclick="closeModal()" 
+                            class="flex-1 py-6 border border-white/30 rounded-2xl font-semibold">CLOSE</button>
+                    <button onclick="bookFromModal()" 
+                            class="flex-1 py-6 bg-white text-black rounded-2xl font-semibold">BOOK THIS DESIGN</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tailwind script already included via CDN
+        
+        function showDesignModal(id) {
+            const modal = document.getElementById('designModal');
+            const img = document.getElementById('modalImage');
+            const title = document.getElementById('modalTitle');
+            const desc = document.getElementById('modalDesc');
+            
+            if (id === 1) {
+                img.style.backgroundImage = "url('https://picsum.photos/id/1015/1200/800')";
+                title.textContent = "Cyber Dragon";
+                desc.textContent = "A breathtaking fusion of ancient mythology and cyberpunk aesthetics. Perfect for sleeve or back piece.";
+            } else if (id === 2) {
+                img.style.backgroundImage = "url('https://picsum.photos/id/201/1200/800')";
+                title.textContent = "Cosmic Phoenix";
+                desc.textContent = "Rising from digital ashes. Symbol of rebirth with glowing neon feathers.";
+            } else {
+                img.style.backgroundImage = "url('https://picsum.photos/id/866/1200/800')";
+                title.textContent = "Sacred Lion";
+                desc.textContent = "Geometric guardian. Clean lines meet raw power.";
+            }
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+        
+        function closeModal() {
+            const modal = document.getElementById('designModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+        
+        function bookFromModal() {
+            closeModal();
+            document.getElementById('book').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function submitBooking() {
+            alert("🎉 Thank you! Your consultation request has been received. Our team will contact you within 24 hours.");
+            document.getElementById('bookingForm').reset();
+        }
+        
+        function filterStyle(el) {
+            document.querySelectorAll('.style-card').forEach(card => {
+                card.style.opacity = '0.4';
+            });
+            el.style.opacity = '1';
+            
+            setTimeout(() => {
+                document.querySelectorAll('.style-card').forEach(card => {
+                    card.style.opacity = '1';
+                });
+                alert("Filtered designs would appear here in a real site ✨");
+            }, 600);
+        }
+        
+        // Keyboard escape support
+        document.addEventListener('keydown', function(e) {
+            if (e.key === "Escape") {
+                const modal = document.getElementById('designModal');
+                if (!modal.classList.contains('hidden')) closeModal();
+            }
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        console.log('%cINKFORGE Landing Page Loaded Successfully ✨', 'color:#00ffea; font-size:13px; font-family:monospace');
+    </script>
+</body>
+</html>
